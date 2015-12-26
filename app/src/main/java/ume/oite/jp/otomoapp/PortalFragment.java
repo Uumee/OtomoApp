@@ -38,6 +38,7 @@ public class PortalFragment extends Fragment {
 
     void setCalendar(Calendar c){
         dateView.setCalendar(c);
+        ScheduleUpdate();
     }
 
     void ScheduleUpdate(){
@@ -49,7 +50,7 @@ public class PortalFragment extends Fragment {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this.getContext(),R.layout.list_item);
         helper=new DatabaseHelper(this.getContext());
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor c = db.rawQuery("select * from Sample",null);
+        Cursor c = db.rawQuery("select * from Sample where BeginTime = ' "+year+"-"+month+"-"+date+"-12-00-00 '",null);
         if(c.getCount()>0) {
             c.moveToFirst();
             do {

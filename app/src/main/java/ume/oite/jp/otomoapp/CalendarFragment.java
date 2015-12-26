@@ -107,7 +107,7 @@ public class CalendarFragment extends Fragment{
                                 v.requestFocus();
                             }
                         } else {
-                            if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                            if (event.getActionMasked() == MotionEvent.ACTION_UP) {
                                 ((MainActivity)getActivity()).moveCalendar2Portal(year,month,date);
                             }
                         }
